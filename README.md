@@ -2,6 +2,8 @@
 
 A small Bun web app that inspects a WMS GetCapabilities endpoint and generates a MapLibre raster source and layer.
 
+![WMS to MapLibre screenshot](screenshot.png)
+
 ## Requirements
 
 [Bun](https://bun.sh/) 1.0 or later.
