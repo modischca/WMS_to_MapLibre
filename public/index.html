@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark light" />
+    <title>WMS to MapLibre</title>
+    <link rel="stylesheet" href="/app.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header>
+        <p class="eyebrow">Raster configuration utility</p>
+        <h1>WMS to MapLibre</h1>
+        <p class="lede">Inspect a GetCapabilities document and produce a direct raster source.</p>
+      </header>
+
+      <form id="inspect-form" class="inspect-form">
+        <label for="wms-url">WMS GetCapabilities URL</label>
+        <div class="url-row">
+          <input id="wms-url" name="url" type="url" required placeholder="https://example.com/wms?service=WMS&amp;request=GetCapabilities" />
+          <button type="submit">Inspect WMS</button>
+        </div>
+      </form>
+
+      <p id="message" class="message" role="status" aria-live="polite"></p>
+
+      <section id="workspace" hidden>
+        <div id="status" class="status" aria-live="polite"></div>
+        <div class="editor">
+          <div class="control">
+            <label for="version">Version</label>
+            <select id="version" disabled></select>
+          </div>
+          <div class="control wide">
+            <label for="layers">Layers <span class="hint">Select one or more</span></label>
+            <select id="layers" multiple size="7"></select>
+            <p id="layer-description" class="description"></p>
+          </div>
+          <div class="control">
+            <label for="crs">CRS</label>
+            <select id="crs"></select>
+          </div>
+          <div class="control">
+            <label for="format">Format</label>
+            <select id="format"></select>
+          </div>
+          <div class="control">
+            <label for="tile-size">Tile size</label>
+            <select id="tile-size"><option value="256">256</option><option value="512">512</option></select>
+          </div>
+          <div class="control checkbox-control">
+            <label for="transparent">Transparent</label>
+            <input id="transparent" type="checkbox" checked />
+          </div>
+          <div id="style-controls" class="control wide"></div>
+        </div>
+
+        <section class="output">
+          <div class="output-heading"><label for="generated-url">Generated WMS URL</label><button data-copy="generated-url" type="button">Copy URL</button></div>
+          <textarea id="generated-url" readonly rows="4"></textarea>
+        </section>
+        <section class="output">
+          <div class="output-heading"><label for="generated-config">Generated MapLibre config</label><button data-copy="generated-config" type="button">Copy MapLibre config</button></div>
+          <textarea id="generated-config" readonly rows="14"></textarea>
+        </section>
+      </section>
+    </main>
+    <script type="module" src="/assets/main.js"></script>
+  </body>
+</html>

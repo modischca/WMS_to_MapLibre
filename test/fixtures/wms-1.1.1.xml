@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WMT_MS_Capabilities version="1.1.1" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <Capability>
+    <Request><GetMap>
+      <Format>image/png</Format><Format>image/jpeg</Format>
+      <DCPType><HTTP><Get><OnlineResource xlink:href="https://maps.example.test/wms?token=keep" /></Get></HTTP></DCPType>
+    </GetMap></Request>
+    <Layer>
+      <Title>Example service</Title><SRS>EPSG:3857</SRS><SRS>EPSG:4326</SRS>
+      <Style><Name>base</Name><Title>Base style</Title></Style>
+      <Layer><Name>land</Name><Title>Land area</Title><Abstract>Land polygons.</Abstract></Layer>
+      <Layer><Name>roads</Name><Title>Roads</Title><SRS>EPSG:25833</SRS><Style><Name>line</Name><Title>Line style</Title></Style></Layer>
+    </Layer>
+  </Capability>
+</WMT_MS_Capabilities>
